@@ -24,6 +24,7 @@
         public string Inf { get; private set; }
 
         [DataMember(Name = "lns", Order = 2)]
+        [Obsolete("The save as `ctr` parameter in in `zns` list")]
         public List<object> MapPoints { get; private set; }
 
         [DataMember(Name = "prc", Order = 5)]
@@ -31,6 +32,6 @@
         public int Price { get; private set; }
 
         [DataMember(Name = "zns", Order = 7)]
-        public List<object> Stations { get; private set; }
+        public List<StationInfo> Stations { get; private set; }
     }
 }

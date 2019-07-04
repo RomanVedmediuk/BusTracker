@@ -11,18 +11,23 @@
             this.Id = route.Id;
             this.Name = route.Name;
             this.Description = route.Descriptions.FirstOrDefault();
-            this.MapPoints = route.MapPoints;
-            this.Stations = route.Stations;
+            
+            this.Stations = route.Stations
+                .Select(x => new StationInformation(x))
+                .Cast<IStationInformation>()
+                .ToList();
         }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
         public int Id { get; }
 
         public string Name { get; }
 
         public string Description { get; }
 
-        public List<object> MapPoints { get; }
-
-        public List<object> Stations { get; }
+        public List<IStationInformation> Stations { get; }
     }
 }

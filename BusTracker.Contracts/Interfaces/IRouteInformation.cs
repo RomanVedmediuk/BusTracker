@@ -10,8 +10,6 @@
 
         string Description { get; }
 
-        List<object> MapPoints { get; }
-
-        List<object> Stations { get; }
+        List<IStationInformation> Stations { get; }
     }
 }

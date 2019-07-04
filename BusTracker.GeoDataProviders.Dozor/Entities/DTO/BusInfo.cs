@@ -24,6 +24,6 @@
         public bool HasLowLanding { get; private set; }
 
         [DataMember(Name = "rad", Order = 5)]
-        public bool HasHingeConnection { get; private set; }
+        public bool HasHingeConnection { get;  private set; }
     }
 }

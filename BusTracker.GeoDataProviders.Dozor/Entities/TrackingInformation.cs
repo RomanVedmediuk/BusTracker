@@ -1,6 +1,7 @@
 ﻿namespace BusTracker.GeoDataProviders.Dozor.Entities
 {
     using BusTracker.Contracts.Interfaces;
+    using GeoCoordinatePortable;
 
     internal class TrackingInformation : ITrackingInformation
     {
@@ -11,14 +12,21 @@
             this.HasHingeConnection = info.HasHingeConnection;
             this.HasLowLanding = info.HasLowLanding;
             this.RegistrationNumber = info.RegistrationNumber;
-            this.GeoPosition = new GeoPosition(info);
+            this.GeoPosition = new GeoCoordinate(
+                info.Location.Latitude,
+                info.Location.Longitude,
+                0,
+                0,
+                0,
+                info.Speed,
+                info.Azimuth);
         }
 
         public int RouteId { get;}
 
         public int Id { get; }
 
-        public IGeoPosition GeoPosition { get; }
+        public GeoCoordinate GeoPosition { get; }
 
         public string RegistrationNumber { get; }
 
