@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.Console", "BusTracker.Console\BusTracker.Console.csproj", "{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.Contracts", "BusTracker.Contracts\BusTracker.Contracts.csproj", "{79D7FE7A-910F-4EF0-8BB9-8BB99E619B8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusTracker.GeoDataProviders", "BusTracker.GeoDataProviders", "{3E7C31C6-E62F-48E6-B45C-2445DD679975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.GeoDataProviders.Dozor", "BusTracker.GeoDataProviders.Dozor\BusTracker.GeoDataProviders.Dozor.csproj", "{D1707C83-942F-4916-BD0D-BB91156D993D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.Utilities", "BusTracker.Utilities\BusTracker.Utilities.csproj", "{817310A4-17F4-4DA0-AAFF-DAC468109161}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79D7FE7A-910F-4EF0-8BB9-8BB99E619B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D7FE7A-910F-4EF0-8BB9-8BB99E619B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D7FE7A-910F-4EF0-8BB9-8BB99E619B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D7FE7A-910F-4EF0-8BB9-8BB99E619B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1707C83-942F-4916-BD0D-BB91156D993D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1707C83-942F-4916-BD0D-BB91156D993D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1707C83-942F-4916-BD0D-BB91156D993D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1707C83-942F-4916-BD0D-BB91156D993D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817310A4-17F4-4DA0-AAFF-DAC468109161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817310A4-17F4-4DA0-AAFF-DAC468109161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817310A4-17F4-4DA0-AAFF-DAC468109161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817310A4-17F4-4DA0-AAFF-DAC468109161}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1707C83-942F-4916-BD0D-BB91156D993D} = {3E7C31C6-E62F-48E6-B45C-2445DD679975}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C3BF499-A0B6-44FE-A29C-D8639A88A4B9}
+	EndGlobalSection
+EndGlobal
