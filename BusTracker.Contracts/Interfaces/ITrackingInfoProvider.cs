@@ -5,5 +5,7 @@
     public interface ITrackingInfoProvider
     {
         IEnumerable<ITrackingInformation> GetTrackingInformationByRouteIds(IEnumerable<int> routeIds);
+
+        IEnumerable<IRouteInformation> GetRoutes();
     }
 }
