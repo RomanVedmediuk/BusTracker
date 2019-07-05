@@ -1,6 +1,7 @@
 ﻿namespace BusTracker.GeoDataProviders.Dozor
 {
     using System.Collections.Generic;
+    using System.Linq;
     using BusTracker.Contracts.Interfaces;
     using BusTracker.GeoDataProviders.Dozor.Converters;
     using BusTracker.GeoDataProviders.Dozor.Entities;
@@ -21,11 +22,6 @@
             return RouteConverter.GetRouteInformation(wrappedData.Data);
         }
 
-        /// <summary>
-        /// Gets the tracking information by route ids.
-        /// </summary>
-        /// <param name="routeIds">The route ids.</param>
-        /// <returns>IEnumerable&lt;ITrackingInformation&gt;.</returns>
         public IEnumerable<ITrackingInformation> GetTrackingInformationByRouteIds(IEnumerable<int> routeIds)
         {
             var routes = new List<RouteInfo>();
@@ -36,6 +32,11 @@
             }
 
             return RouteConverter.GetTrackingInformation(routes);
+        }
+        public IEnumerable<IVehicleTracker> GetFreeData()
+        {
+            var data = this.dataLoader.GetFreeData().Result;
+            return data.Select(t => new VehicleTracker(t));
         }
     }
 }

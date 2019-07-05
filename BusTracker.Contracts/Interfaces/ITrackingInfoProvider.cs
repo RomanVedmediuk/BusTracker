@@ -7,5 +7,7 @@
         IEnumerable<ITrackingInformation> GetTrackingInformationByRouteIds(IEnumerable<int> routeIds);
 
         IEnumerable<IRouteInformation> GetRoutes();
+
+        IEnumerable<IVehicleTracker> GetFreeData();
     }
 }

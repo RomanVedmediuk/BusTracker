@@ -43,6 +43,11 @@
                 Console.WriteLine(
                     $"[{route?.Name,2}] \t [{currentTrack.RegistrationNumber,10}] \t {currentTrack.GeoPosition.Course} \t {currentTrack.GeoPosition.Speed} \t [{nearestStation.Name}]");
             }
+
+            var data = this.provider.GetFreeData().ToList();
+            var groupedByImei = data.GroupBy(trackerData => trackerData.Imei);
+            var totalCount = groupedByImei.Count();
+            var actualCount = data.Count(x => (DateTime.UtcNow - x.TimeStamp) < TimeSpan.FromMinutes(1));
         }
 
         private static IStationInformation GetClosestStation(double latitude, double longitude, IEnumerable<IStationInformation> trackingData)

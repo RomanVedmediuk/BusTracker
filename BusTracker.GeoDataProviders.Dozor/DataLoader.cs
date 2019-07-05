@@ -29,6 +29,12 @@
             return await this.ProcessRequest<WrappedData<GeneralRouteInfo>>(requestPath);
         }
 
+        public async Task<List<TrackerData>> GetFreeData()
+        {
+            const string requestPath = "http://t.dozor-gps.com.ua/data?t=17";
+            return await this.ProcessRequest<List<TrackerData>>(requestPath);
+        }
+
         private async Task<TEntity> ProcessRequest<TEntity>(string requestPath)
             where TEntity: class, new()
         {

@@ -18,10 +18,6 @@
                 .ToList();
         }
 
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <value>The identifier.</value>
         public int Id { get; }
 
         public string Name { get; }
