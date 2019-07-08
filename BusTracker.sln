@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.Utilities", "Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.Core", "BusTracker.Core\BusTracker.Core.csproj", "{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B05EA5E5-6218-4C0B-9D78-E87EE6E3E296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStopsDataGrabber", "BusStopsDataGrabber\BusStopsDataGrabber.csproj", "{144C0789-40E7-49F8-9D94-0CD43A2D7808}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,12 +45,17 @@ Global
 		{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D1707C83-942F-4916-BD0D-BB91156D993D} = {3E7C31C6-E62F-48E6-B45C-2445DD679975}
+		{144C0789-40E7-49F8-9D94-0CD43A2D7808} = {B05EA5E5-6218-4C0B-9D78-E87EE6E3E296}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C3BF499-A0B6-44FE-A29C-D8639A88A4B9}

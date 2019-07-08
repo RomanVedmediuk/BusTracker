@@ -1,0 +1,7 @@
+{
+  "Latitude": 0,
+  "Longitude": 0,
+  "Radius": 0,
+  "GoogleApiKey": "YOUR_API_KEY",
+  "ConnectionString": "(localdb)\\MSSQLLocalDB"
+}

@@ -35,27 +35,30 @@
                 var route = this.trackedRoutes.FirstOrDefault(sr => sr.Id == currentTrack.RouteId);
                 var latitude = currentTrack.GeoPosition.Latitude;
                 var longitude = currentTrack.GeoPosition.Longitude;
+
+                var vehicleLocation = new GeoCoordinate(latitude, longitude);
                 var nearestStation = GetClosestStation(
-                    latitude,
-                    longitude,
+                    vehicleLocation,
                     route?.Stations);
 
+                var distance = vehicleLocation.GetDistanceTo(nearestStation.Location);
                 Console.WriteLine(
-                    $"[{route?.Name,2}] \t [{currentTrack.RegistrationNumber,10}] \t {currentTrack.GeoPosition.Course} \t {currentTrack.GeoPosition.Speed} \t [{nearestStation.Name}]");
+                    $"[{route?.Name,2}] \t [{currentTrack.RegistrationNumber,10}] \t {currentTrack.GeoPosition.Course} \t {currentTrack.GeoPosition.Speed} \t [{nearestStation.Name,30}] \t Distance: {distance:F}");
             }
 
-            var data = this.provider.GetFreeData().ToList();
-            var groupedByImei = data.GroupBy(trackerData => trackerData.Imei);
-            var totalCount = groupedByImei.Count();
-            var actualCount = data.Count(x => (DateTime.UtcNow - x.TimeStamp) < TimeSpan.FromMinutes(1));
+            //var data = this.provider.GetFreeData().ToList();
+            //var groupedByImei = data.GroupBy(trackerData => trackerData.Imei);
+            //var totalCount = groupedByImei.Count();
+            //var actualCount = data.Count(x => (DateTime.UtcNow - x.TimeStamp) < TimeSpan.FromMinutes(1));
         }
 
-        private static IStationInformation GetClosestStation(double latitude, double longitude, IEnumerable<IStationInformation> trackingData)
+        private static IStationInformation GetClosestStation(GeoCoordinate vehicleLocation, IEnumerable<IStationInformation> trackingData)
         {
-            var vehicleLocation = new GeoCoordinate(latitude, longitude);
             var closestStation = trackingData.OrderBy(x => vehicleLocation.GetDistanceTo(x.Location)).FirstOrDefault();
 
             return closestStation;
         }
+
+        
     }
 }
