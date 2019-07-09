@@ -1,4 +1,4 @@
-﻿namespace BusStopsDataGrabber
+﻿namespace BusStopsDataGrabber.Data
 {
     using System;
     using System.Collections.Generic;
@@ -14,7 +14,7 @@
             var isNegativeDeltaY = topRight.Y - bottomLeft.Y < 0;
             var deltaY = Math.Abs(topRight.Y - bottomLeft.Y) / steps;
 
-            var radius = GetDistanceFromLatLonInKm(bottomLeft.X, bottomLeft.Y, topRight.X, topRight.Y) / steps;
+            var radius = GetDistanceFromLatLonInKm(bottomLeft.X, bottomLeft.Y, topRight.X, topRight.Y) / steps / 2;
             for (var x=0 ; x <= steps; x++)
             for (var y = 0; y <= steps; y++)
             {

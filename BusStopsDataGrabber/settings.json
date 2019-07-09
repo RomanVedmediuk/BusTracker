@@ -1,8 +1,10 @@
 {
   "Tracking": {
-    "Latitude": 0,
-    "Longitude": 0,
-    "Radius": 0,
+    "BottomLeftLatitude": 0,
+    "BottomLeftLongitude": 0,
+    "TopRightLatitude": 0,
+    "TopRightLongitude": 0,
+    "Steps": 0,
     "GoogleApiKey": "YOUR_API_KEY"
   },
   "ConnectionStrings": {

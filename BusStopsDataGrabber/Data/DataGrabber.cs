@@ -1,4 +1,4 @@
-﻿namespace BusStopsDataGrabber
+﻿namespace BusStopsDataGrabber.Data
 {
     using System;
     using System.Collections.Generic;

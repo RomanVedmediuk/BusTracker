@@ -4,15 +4,13 @@
     using Microsoft.Extensions.Configuration;
     using System;
     using System.Collections.Generic;
-    using System.Data.SqlClient;
     using System.Linq;
-    using System.Runtime.CompilerServices;
-    using Dapper;
     using GeoAPI.Geometries;
-    using global::BusStopsDataGrabber.Context;
-    using global::BusStopsDataGrabber.Entities;
-    using global::BusStopsDataGrabber.Models;
-    using NetTopologySuite;
+    using Comparers;
+    using Context;
+    using Data;
+    using Entities;
+    using Models;
     using NetTopologySuite.Geometries;
 
 
@@ -29,6 +27,10 @@
 
             config.GetSection("Tracking").Bind(trackingSettings);
             var grabber = new DataGrabber(trackingSettings.GoogleApiKey);
+
+            var bottomLeftCorner = new Coordinate(48.860606, 24.595572);
+            var topRightCorner = new Coordinate(48.985076, 24.793446);
+            var steps = trackingSettings.Steps;
             var points = PointsProvider.SelectPoints(new Coordinate(48.860606, 24.595572), new Coordinate(48.985076, 24.793446), 20);
 
             var places = new List<PlaceInformation>();
@@ -45,20 +47,16 @@
             }
 
             Console.WriteLine($"*Total point loaded: {places.Count}**");
-
             var busStops = places.ConvertAll(PlaceInformationToBusStop).Distinct(new PlaceIdEqualityComparer()).ToList();
-
             Console.WriteLine($"*Total point without duplicates: {busStops.Count}**");
 
             var context = new BusStopContext(config.GetConnectionString("DefaultConnection"));
             context.AddRange(busStops);
             context.SaveChanges();
-
-            Console.ReadKey();
-            Console.ReadLine();
+            Console.WriteLine($"Done!");
         }
 
-        public static BusStop PlaceInformationToBusStop(PlaceInformation place)
+        private static BusStop PlaceInformationToBusStop(PlaceInformation place)
         {
             return new BusStop
             {

@@ -2,11 +2,16 @@
 {
     public class TrackingSettings
     {
-        public double Latitude { get; set; }
 
-        public double Longitude { get; set; }
+        public double BottomLeftLatitude { get; set; }
 
-        public int Radius { get; set; }
+        public double BottomLeftLongitude { get; set; }
+
+        public double TopRightLatitude { get; set; }
+
+        public double TopRightLongitude { get; set; }
+
+        public int Steps { get; set; }
 
         public string GoogleApiKey { get; set; }
     }

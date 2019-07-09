@@ -1,4 +1,4 @@
-﻿namespace BusStopsDataGrabber
+﻿namespace BusStopsDataGrabber.Comparers
 {
     using System.Collections.Generic;
     using Models;

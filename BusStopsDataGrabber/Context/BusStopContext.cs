@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BusStopsDataGrabber.Context
+﻿namespace BusStopsDataGrabber.Context
 {
     using Models;
     using Microsoft.EntityFrameworkCore;
