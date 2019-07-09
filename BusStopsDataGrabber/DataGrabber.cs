@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
-    using System.Threading.Tasks;
+    using System.Threading;
     using BusTracker.Utilities;
     using BusTracker.Utilities.Serializers;
     using Entities;
@@ -12,40 +12,51 @@
     {
         private readonly HttpRequestHandler requestHandler;
         private readonly JsonSerializer jsonSerializer;
+        private readonly string apiKey;
 
-        public DataGrabber()
+        public DataGrabber(string apiKey)
         {
             var httpClient = new HttpClient
             {
                 DefaultRequestHeaders = { { "Accept-Encoding", "gzip, deflate, br" } }
             };
 
+            this.apiKey = apiKey;
             this.requestHandler = new HttpRequestHandler(httpClient);
             this.jsonSerializer = new JsonSerializer();
         }
 
-        public async Task<List<PlaceInformation>> Collect(Settings settings)
+        public List<PlaceInformation> Collect(double lat, double lng, int rad)
         {
-            var request = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={settings.Latitude},{settings.Longitude}&radius={settings.Radius}&type=bus_station&key={settings.GoogleApiKey}&language=uk&region=UA";
+            var request = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={lat},{lng}&radius={rad}&type=bus_station&key={this.apiKey}&language=uk&region=UA";
             var results = new List<PlaceInformation>();
             try
             {
-                var response = await this.requestHandler.HandleAsync(request);
+                var response = this.requestHandler.HandleAsync(request).Result;
                 var placesApiQueryResponse = this.jsonSerializer.Deserialize<PlacesApiQueryResponse>(response);
                 results.AddRange(placesApiQueryResponse.Results);
+                var nextPageToken = placesApiQueryResponse.NextPageToken;
+                Console.WriteLine($"Status: {placesApiQueryResponse.Status}");
+                Console.WriteLine($"Request: {request}");
+                Console.WriteLine($"Token: {nextPageToken}");
+                Console.WriteLine($"Loaded: {results.Count}");
 
-                if (string.IsNullOrWhiteSpace(placesApiQueryResponse.NextPageToken))
+                while (!string.IsNullOrWhiteSpace(nextPageToken))
                 {
-                    //PlacesApiQueryResponse pageResponse;
-                    //do
-                    //{
-                    //    var pageRequest =
-                    //        $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={settings.Latitude},{settings.Longitude}&radius={settings.Radius}&type=bus_station&key={settings.GoogleApiKey}&language=uk&region=UA";
-                    //    pageResponse = await this.CollectPage(pageRequest);
-                    //    results.AddRange(pageResponse.Results);
-                    //} while (string.IsNullOrWhiteSpace(pageResponse.NextPageToken));
-                }
+                    Thread.Sleep(2000);
+                    var pageRequest =
+                        $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={nextPageToken}&key={this.apiKey}&language=uk&region=UA";
 
+                    var pageResponse = this.requestHandler.HandleAsync(pageRequest).Result;
+                    var pagePlacesApiQueryResponse = this.jsonSerializer.Deserialize<PlacesApiQueryResponse>(pageResponse);
+                    results.AddRange(pagePlacesApiQueryResponse.Results);
+                    nextPageToken = pagePlacesApiQueryResponse.NextPageToken;
+
+                    Console.WriteLine($"Page Status: {pagePlacesApiQueryResponse.Status}");
+                    Console.WriteLine($"Page Request: {pageRequest}");
+                    Console.WriteLine($"Token: {nextPageToken}");
+                    Console.WriteLine($"Loaded: {results.Count}");
+                }
             }
             catch (Exception e)
             {
@@ -54,13 +65,6 @@
             }
 
             return results;
-        }
-
-        public async Task<PlacesApiQueryResponse> CollectPage(string request)
-        {
-            var response = await this.requestHandler.HandleAsync(request);
-            var placesApiQueryResponse = this.jsonSerializer.Deserialize<PlacesApiQueryResponse>(response);
-            return placesApiQueryResponse;
         }
     }
 }
