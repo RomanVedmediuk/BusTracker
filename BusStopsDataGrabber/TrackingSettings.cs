@@ -1,6 +1,6 @@
 ﻿namespace BusStopsDataGrabber
 {
-    public class Settings
+    public class TrackingSettings
     {
         public double Latitude { get; set; }
 
