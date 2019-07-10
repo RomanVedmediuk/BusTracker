@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.Console", "BusTracker.Console\BusTracker.Console.csproj", "{6F1559AC-52CD-4AD3-970D-B9CB0C22FD65}"
 EndProject
@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.GeoDataProviders
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.Utilities", "BusTracker.Utilities\BusTracker.Utilities.csproj", "{817310A4-17F4-4DA0-AAFF-DAC468109161}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.Core", "BusTracker.Core\BusTracker.Core.csproj", "{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusTracker.Core", "BusTracker.Core\BusTracker.Core.csproj", "{7CD79FF0-3191-418B-8E8D-AE6C84F93AFF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B05EA5E5-6218-4C0B-9D78-E87EE6E3E296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStopsDataGrabber", "BusStopsDataGrabber\BusStopsDataGrabber.csproj", "{144C0789-40E7-49F8-9D94-0CD43A2D7808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusStopsDataGrabber", "BusStopsDataGrabber\BusStopsDataGrabber.csproj", "{144C0789-40E7-49F8-9D94-0CD43A2D7808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTracker.Infrastructure", "BusTracker.Infrastructure\BusTracker.Infrastructure.csproj", "{B04D2080-30FF-4F3F-93C8-BD9EAB015554}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{144C0789-40E7-49F8-9D94-0CD43A2D7808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B04D2080-30FF-4F3F-93C8-BD9EAB015554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B04D2080-30FF-4F3F-93C8-BD9EAB015554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B04D2080-30FF-4F3F-93C8-BD9EAB015554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B04D2080-30FF-4F3F-93C8-BD9EAB015554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
