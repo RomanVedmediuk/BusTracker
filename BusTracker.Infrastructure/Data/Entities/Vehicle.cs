@@ -2,11 +2,11 @@
 {
     public class Vehicle : Entity
     {
-        public string VehicleId { get; set; }
-
         public int TrackingDeviceId { get; set; }
 
         public int RouteId { get; set; }
+
+        public string VehicleBrand { get; set; }
 
         public byte VehicleQuality { get; set; }
 

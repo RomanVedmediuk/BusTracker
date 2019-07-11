@@ -17,7 +17,7 @@
 
             builder.HasMany(_ => _.Vehicles)
                 .WithOne(_ => _.Route)
-                .HasForeignKey(_ => _.VehicleId);
+                .HasForeignKey(_ => _.Id);
 
             base.Configure(builder);
         }
