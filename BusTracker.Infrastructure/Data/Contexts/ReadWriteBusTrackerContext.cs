@@ -1,6 +1,6 @@
-﻿namespace BusTracker.Infrastructure.Contexts
+﻿namespace BusTracker.Infrastructure.Data.Contexts
 {
-    using BusTracker.Infrastructure.Contexts.Configurations;
+    using BusTracker.Infrastructure.Data.Contexts.Configurations;
     using BusTracker.Infrastructure.Data.Entities;
     using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +23,7 @@
 
         public virtual DbSet<TrackingDevice> TrackingDevice { get; set; }
 
-        public virtual DbSet<TrackingLog> TrackingLog { get; set; }
+        public virtual DbSet<TrackingDataLog> TrackingDataLog { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,8 +38,8 @@
             builder.ApplyConfiguration(new VehicleConfiguration());
             builder.ApplyConfiguration(new RouteConfiguration());
             builder.ApplyConfiguration(new RouteStationMappingConfiguration());
-            builder.ApplyConfiguration(new TrackerConfiguration());
-            builder.ApplyConfiguration(new TrackingLogConfiguration());
+            builder.ApplyConfiguration(new TrackingDeviceConfiguration());
+            builder.ApplyConfiguration(new TrackingDataLogConfiguration());
         }
     }
 }
