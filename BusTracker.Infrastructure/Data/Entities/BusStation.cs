@@ -5,7 +5,7 @@
 
     public class BusStation : Entity
     {
-        public int StationId { get; set; }
+        public string StationInternalId { get; set; }
 
         public string Name { get; set; }
 

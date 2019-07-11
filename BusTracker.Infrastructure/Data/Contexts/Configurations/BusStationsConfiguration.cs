@@ -1,6 +1,7 @@
 ﻿namespace BusTracker.Infrastructure.Data.Contexts.Configurations
 {
     using BusTracker.Infrastructure.Data.Entities;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
     public class BusStationsConfiguration : EntityConfiguration<BusStation>

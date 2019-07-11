@@ -2,8 +2,11 @@
 {
     using Microsoft.EntityFrameworkCore;
 
-    public class ReadOnlyBusTrackerContext : DbContext, IReadOnlyContext
+    public sealed class ReadOnlyBusTrackerContext : ReadWriteBusTrackerContext, IReadOnlyContext
     {
-        
+        public ReadOnlyBusTrackerContext(string connectionString) : base(connectionString)
+        {
+            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
     }
 }

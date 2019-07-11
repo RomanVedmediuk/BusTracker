@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="2.2.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\Queries\Projections\" />
+  </ItemGroup>
+
 </Project>

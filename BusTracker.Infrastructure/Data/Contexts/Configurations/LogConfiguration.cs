@@ -9,8 +9,9 @@
     {
         public virtual void Configure(EntityTypeBuilder<T> builder)
         {
-            builder.Property(m => m.Id).HasDefaultValueSql(DataConstants.SqlServer.NewSequentialId);
-            builder.Property(m => m.CreatedOn).HasColumnType(DataConstants.SqlServer.DateTime2).HasDefaultValueSql(DataConstants.SqlServer.SysDateTime);
+            builder.Property(_ => _.Id).HasDefaultValueSql(DataConstants.SqlServer.NewSequentialId);
+            builder.HasIndex(_ => _.Id).HasName($"IX_{nameof(T)}_Id").ForSqlServerIsClustered(false);
+            builder.Property(_ => _.CreatedOn).HasColumnType(DataConstants.SqlServer.DateTime2).HasDefaultValueSql(DataConstants.SqlServer.SysDateTime);
         }
     }
 }
