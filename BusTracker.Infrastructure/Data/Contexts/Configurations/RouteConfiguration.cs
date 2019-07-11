@@ -1,6 +1,6 @@
 ﻿namespace BusTracker.Infrastructure.Contexts.Configurations
 {
-    using BusTracker.Infrastructure.Entities;
+    using BusTracker.Infrastructure.Data.Entities;
 
     public class RouteConfiguration : EntityConfiguration<Route>
     {

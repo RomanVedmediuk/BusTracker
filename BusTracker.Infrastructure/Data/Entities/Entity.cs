@@ -1,4 +1,4 @@
-﻿namespace BusTracker.Infrastructure.Entities
+﻿namespace BusTracker.Infrastructure.Data.Entities
 {
     using System;
 

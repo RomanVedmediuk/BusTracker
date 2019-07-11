@@ -1,6 +1,6 @@
 ﻿namespace BusTracker.Infrastructure.Contexts.Configurations
 {
-    using BusTracker.Infrastructure.Entities;
+    using BusTracker.Infrastructure.Data.Entities;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

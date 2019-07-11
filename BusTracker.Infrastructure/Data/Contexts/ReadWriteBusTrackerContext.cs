@@ -1,7 +1,7 @@
 ﻿namespace BusTracker.Infrastructure.Contexts
 {
     using BusTracker.Infrastructure.Contexts.Configurations;
-    using BusTracker.Infrastructure.Entities;
+    using BusTracker.Infrastructure.Data.Entities;
     using Microsoft.EntityFrameworkCore;
 
     public class ReadWriteBusTrackerContext : DbContext, IReadWriteContext
