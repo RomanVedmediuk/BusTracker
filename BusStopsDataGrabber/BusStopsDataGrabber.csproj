@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="settings.Development.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -39,6 +36,6 @@
     <ProjectReference Include="..\BusTracker.Utilities\BusTracker.Utilities.csproj" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties settings_1json__JsonSchema="http://json.schemastore.org/appsettings" settings_1development_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties settings_1json__JsonSchema="http://json.schemastore.org/appsettings" /></VisualStudio></ProjectExtensions>
 
 </Project>
